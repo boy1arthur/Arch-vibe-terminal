@@ -1,5 +1,5 @@
 # Vibe Terminal 🖥️
-<img width="716" height="689" alt="image" src="https://github.com/user-attachments/assets/077a7a0c-4766-4c0b-9d4b-2526d0b1875c" />
+<img width="360" height="344" alt="image" src="https://github.com/user-attachments/assets/077a7a0c-4766-4c0b-9d4b-2526d0b1875c" />
 
 > 바이브코딩을 위한 브라우저 기반 터미널 + 파일 탐색기 IDE
 
