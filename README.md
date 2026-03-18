@@ -1,11 +1,12 @@
 # Vibe Terminal 🖥️
+<img width="716" height="689" alt="image" src="https://github.com/user-attachments/assets/077a7a0c-4766-4c0b-9d4b-2526d0b1875c" />
 
 > 바이브코딩을 위한 브라우저 기반 터미널 + 파일 탐색기 IDE
 
 ## 데모
 
 GitHub Pages에 배포 후 자동으로 접속 가능합니다:  
-`https://<your-username>.github.io/vibe-terminal`
+`https://boy1arthur.github.io/Arch-vibe-terminal`
 
 ## 기능
 
@@ -39,36 +40,11 @@ GitHub Pages에 배포 후 자동으로 접속 가능합니다:
 - 탐색기 너비 드래그 조절
 - 빠른 실행 버튼 바
 
-## GitHub Pages 배포 방법
-
-### 1. 저장소 생성 & 푸시
-
-```bash
-# 저장소 초기화
-git init
-git add .
-git commit -m "feat: 바이브 터미널 초기 릴리즈"
-
-# GitHub 저장소 생성 후
-git remote add origin https://github.com/<your-username>/vibe-terminal.git
-git branch -M main
-git push -u origin main
-```
-
-### 2. GitHub Pages 설정
-
-1. 저장소 → **Settings** → **Pages**
-2. Source: **GitHub Actions** 선택
-3. 저장소에 `.github/workflows/deploy.yml` 이 이미 포함되어 있으므로 자동으로 배포됩니다
-
-### 3. 접속
-
-`https://<your-username>.github.io/vibe-terminal` 으로 접속하면 바로 사용 가능합니다.
 
 ## 파일 구조
 
 ```
-vibe-terminal/
+Arch-vibe-terminal/
 ├── index.html                    # 메인 HTML
 ├── src/
 │   ├── style.css                 # 스타일시트
@@ -86,7 +62,7 @@ vibe-terminal/
 
 - 순수 HTML / CSS / JavaScript (빌드 툴 없음)
 - 외부 의존성: JetBrains Mono 폰트 (Google Fonts)
-- GitHub Actions로 GitHub Pages 자동 배포
+  
 
 ## 라이선스
 
