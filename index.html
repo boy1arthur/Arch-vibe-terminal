@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Vibe Terminal — 바이브코딩 IDE</title>
+  <meta name="description" content="바이브코딩을 위한 브라우저 기반 터미널 + 파일 탐색기 IDE" />
+  <meta property="og:title" content="Vibe Terminal" />
+  <meta property="og:description" content="드래그앤드롭 탐색기 + 인터랙티브 터미널로 로컬 바이브코딩 환경을 브라우저에서" />
+  <meta property="og:type" content="website" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="src/style.css" />
+</head>
+<body>
+  <div class="ide" id="ide">
+    <div class="titlebar">
+      <div class="dots">
+        <div class="dot dr"></div>
+        <div class="dot dy"></div>
+        <div class="dot dg"></div>
+      </div>
+      <span class="tb-title">vibe-terminal — 바이브코딩 IDE</span>
+      <span class="tb-info" id="tbInfo">~/projects/my-app</span>
+    </div>
+
+    <div class="main">
+      <!-- File Explorer -->
+      <div class="explorer" id="explorer">
+        <div class="exp-header">
+          <span class="exp-title">탐색기</span>
+          <div class="exp-actions">
+            <button class="exp-btn" title="새 파일" onclick="showModal('newfile')">+</button>
+            <button class="exp-btn" title="새 폴더" onclick="showModal('newfolder')">⊕</button>
+            <button class="exp-btn" title="새로고침" onclick="renderTree()">↺</button>
+          </div>
+        </div>
+        <div class="tree" id="tree"
+          ondragover="onTreeDragOver(event)"
+          ondrop="onTreeDrop(event, null)">
+        </div>
+      </div>
+
+      <div class="resizer" id="resizer"></div>
+
+      <!-- Terminal Area -->
+      <div class="term-area">
+        <div class="tab-bar-term">
+          <div class="ttab active">터미널</div>
+          <button class="ttab-add" onclick="addTermTab()">+</button>
+        </div>
+        <div class="term-body" id="termBody"></div>
+        <div class="input-row">
+          <span class="ip-label">
+            <span class="pu">현우</span><span class="pat">@</span><span class="pd" id="cwdLbl">~/projects/my-app</span><span class="ps"> $</span>
+          </span>
+          <input class="term-input" id="termInput" autocomplete="off" spellcheck="false" />
+        </div>
+        <div class="quick-bar">
+          <button class="qb" onclick="rq('npm run dev')">npm run dev</button>
+          <button class="qb" onclick="rq('git status')">git status</button>
+          <button class="qb" onclick="rq('ls -la')">ls -la</button>
+          <button class="qb" onclick="rq('npm install')">npm i</button>
+          <button class="qb" onclick="rq('git add . && git commit -m \"feat: update\"')">git commit</button>
+          <button class="qb" onclick="rq('tree')">tree</button>
+          <button class="qb" onclick="rq('clear')">clear</button>
+        </div>
+        <div class="ai-bar">
+          <div class="ai-dot">✦</div>
+          <input class="ai-inp" id="aiInp" placeholder="명령어 물어보기... (예: 컴포넌트 파일 어떻게 만들어요?)" />
+          <button class="ai-send" onclick="askAI()">물어보기</button>
+        </div>
+        <div class="status-bar">
+          <span class="si"><span class="sdot"></span>연결됨</span>
+          <span class="si" id="stBranch">⌥ main</span>
+          <span class="si" id="stFiles">files: 0</span>
+          <span class="si" style="margin-left:auto;color:#1e2640">node v20 · npm 10</span>
+        </div>
+      </div>
+    </div>
+
+    <div id="ctxMenu" class="node-ctx" style="display:none"></div>
+    <div id="modalWrap" style="display:none;position:absolute;inset:0;z-index:300"></div>
+  </div>
+
+  <script src="src/fs.js"></script>
+  <script src="src/terminal.js"></script>
+  <script src="src/explorer.js"></script>
+  <script src="src/main.js"></script>
+</body>
+</html>
